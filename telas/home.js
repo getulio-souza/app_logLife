@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
-import {View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet, Animated } from 'react-native';
+import { View, KeyboardAvoidingView, Image, TouchableOpacity, Text, StyleSheet, Animated } from 'react-native';
 
-export default function Login() {
+export default function Home() {
 
   const [offset] = useState(new Animated.ValueXY({ x: 0, y: 95 }));
   const [opacity] = useState(new Animated.Value(0));
@@ -17,13 +17,12 @@ export default function Login() {
       Animated.timing(opacity, {
         toValue: 1,
         duration: 200,
-        useNativeDriver: false,
+        useNativeDriver: false
       })
     ]).start();
   }, []);
 
   return (
-    
     <KeyboardAvoidingView style={styles.background}>
 
       <View style={styles.containerLogo}>
@@ -40,31 +39,14 @@ export default function Login() {
         ]
         }
       ]}>
- <TouchableOpacity style={styles.title}>
-          <Text style={styles.submit_text}>Faça seu login</Text>
-        </TouchableOpacity>
-        
-        <TextInput style={styles.input}
-          placeholder='Digite seu e-mail'
-          keyboardType='email-address'
-          autoCorrect={false}
-          onChangeText={()=>{}}
-        />
-
-         <TextInput style={styles.input}
-          placeholder='Digite sua senha'
-          secureTextEntry={true}
-          autoCorrect={false}
-          onChangeText={()=>{}}
-        />
 
         <TouchableOpacity style={styles.btn_Submit}>
-          <Text style={styles.submit_text}>Acessar</Text>
+          <Text style={styles.submit_text}>Fazer login</Text>
         </TouchableOpacity>
         
-        {/* <TouchableOpacity style={styles.btn_register}>
+        <TouchableOpacity style={styles.btn_register}>
           <Text style={styles.register_text}>Criar conta</Text>
-      </TouchableOpacity> */}
+      </TouchableOpacity>
 
       </Animated.View>
 
@@ -93,31 +75,8 @@ const styles = StyleSheet.create({
     width: 90,
     paddingBottom:40
   },
-  
-  input: {
-    backgroundColor: '#fff',
-    width: 250,
-    height: 40,
-    marginBottom: 15,
-    color: '#222',
-    fontSize: 17,
-    borderRadius: 7,
-    paddingLeft:7,
-  },
 
-
-  title: {
-    fontSize:7,
-    width: 250,
-    height: 45,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 7,
-    marginBottom: 15,
-  },
-
-
-  btn_Submit: {
+  btn_Submit: {   
     backgroundColor: '#61aadb',
     width: 250,
     height: 45,
@@ -144,7 +103,21 @@ const styles = StyleSheet.create({
   },
 
   register_text: {
-    color:'#fff',
-  }
+      color: '#fff',
+      fontSize: 18,
+    },
+  
+   btn_title: {
+        width: 250,
+        height: 45,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 7,
+        marginBottom: 15,
+      },
+    btn_text: {
+        color: '#fff',
+        fontSize: 25,
+      }
 
 });
