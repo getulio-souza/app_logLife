@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "logLife",
+    "slug": "logLife",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "android": {
+      "package": "com.getuliosouza.logLife"
+    }
+  }
+}
