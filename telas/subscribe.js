@@ -1,12 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
 import { View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet, Animated } from 'react-native';
-
+import { TextInputMask } from 'react-native-masked-text';
 export default function Subscribe() {
 
   const [offset] = useState(new Animated.ValueXY({ x: 0, y: 95 }));
   const [opacity] = useState(new Animated.Value(0));
   
+    
   useEffect(() => {
     Animated.parallel([
       Animated.spring(offset.y, {
@@ -46,7 +47,7 @@ export default function Subscribe() {
 
         <TextInput style={styles.input}
           placeholder='Nome completo'
-          keyboardType='default'
+          textContentType='name'
           autoCorrect={false}
           onChangeText={()=>{}}
         />
@@ -54,8 +55,10 @@ export default function Subscribe() {
          <TextInput style={styles.input}
           placeholder='Número de telefone'
           keyboardType='number-pad'
+          textContentType='telephoneNumber'
           autoCorrect={false}
-          onChangeText={()=>{}}
+          onChangeText={() => { }}
+          maxLength={11}
         />
 
          <TextInput style={styles.input}
@@ -67,6 +70,7 @@ export default function Subscribe() {
 
         <TextInput style={styles.input}
           placeholder='Senha'
+          secureTextEntry={true}
           autoCorrect={false}
           onChangeText={()=>{}}
         />

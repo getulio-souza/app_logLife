@@ -25,10 +25,10 @@ export default function Dados() {
   return (
     <KeyboardAvoidingView style={styles.background}>
 
-       <View style={styles.containerLogo}>
+       {/* <View style={styles.containerLogo}>
          <Image source={require('../telas/img/logo.png')}
         />
-      </View>
+      </View> */}
       <Animated.View style={[
         styles.container,
         {
@@ -50,26 +50,28 @@ export default function Dados() {
             <Text style={styles.submit_text}>Protocolo:</Text>
             <TextInput
               keyboardType='number-pad'
-              placeholder='ex:123218378273'
+              placeholder='ex: 123218378273'
               autoCorrect={false}
-              onChangeText={()=>{}}
+              onChangeText={() => { }}
+              maxLength={17}
             />
-        </TouchableOpacity>
+          </TouchableOpacity>
+          
         <TouchableOpacity style={styles.btn_option}>
             <Text style={styles.submit_text}>Cliente:</Text>
             <TextInput
-              placeholder='ex:Fleury'
+              placeholder='ex: Fleury'
               autoCorrect={false}
               onChangeText={()=>{}}
             />
         </TouchableOpacity>
         </View>
       
-        <View style={styles.names}>
+        <View style={styles.protocolo_cliente}>
           <TouchableOpacity style={styles.btn_option}>
             <Text style={styles.submit_text}>Remetente:</Text>
             <TextInput
-              placeholder='ex:José de Souza'
+              placeholder='ex: José de Souza'
               autoCorrect={false}
               onChangeText={()=>{}}
             />
@@ -77,7 +79,7 @@ export default function Dados() {
         <TouchableOpacity style={styles.btn_option}>
             <Text style={styles.submit_text}>Responsável:</Text> 
             <TextInput
-              placeholder='ex:joao da silva'
+              placeholder='ex: joao da silva'
               autoCorrect={false}
               onChangeText={()=>{}}
             />
@@ -89,16 +91,17 @@ export default function Dados() {
             <Text style={styles.submit_text}>Volume:</Text> 
             <TextInput
               keyboardType='number-pad'
-              placeholder='ex:1,2,3,4,5'
+              placeholder='ex: 1,2,3,4,5'
               autoCorrect={false}
-              onChangeText={()=>{}}
+              onChangeText={() => { }}
+              maxLength={2}
             />
         </TouchableOpacity>
           <TouchableOpacity style={styles.btn_option}>
             <Text style={styles.submit_text}>Amostras:</Text> 
             <TextInput
               keyboardType='number-pad'
-              placeholder='ex:1,2,3,4,5'
+              placeholder='ex: 1,2,3,4,5'
               autoCorrect={false}
               onChangeText={()=>{}}
             />
@@ -111,8 +114,9 @@ export default function Dados() {
          <TouchableOpacity style={styles.btn_option}>
             <Text style={styles.submit_text}>Observações:</Text> 
             <TextInput
-              keyboardType='number-pad'
-              placeholder='ex:1,2,3,4,5'
+              multiline={true}
+              maxLength={20}
+              placeholder='Digite seu comentário'
               autoCorrect={false}
               onChangeText={()=>{}}
             />
@@ -123,7 +127,7 @@ export default function Dados() {
         </View>
         
 
-        <View style={styles.protocolo_cliente}>
+        <View style={styles.botoes}>
         <TouchableOpacity style={styles.btn_red}>
             <Text style={styles.submit_text}>Ocorrência</Text>
         </TouchableOpacity>
@@ -159,15 +163,15 @@ export default function Dados() {
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 7,
-        marginBottom: 15,
+        marginTop: 15,
       },
 
       container: {
-        flex: 2,
+        flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        width: 180,
-        paddingBottom: 40,
+        width: 240,
+        paddingBottom: 20,
       },
    
 
@@ -175,11 +179,11 @@ export default function Dados() {
     
       },
 
-      //botão amarelo 
+      //botão vermelho 
       btn_red: {
         backgroundColor: '#DC143C',
         padding: 12,
-        margin: 2,
+        marginRight: 7,
         height: 45,
         alignItems: 'center',
         justifyContent: 'center',
@@ -187,23 +191,27 @@ export default function Dados() {
         marginBottom: 15,
       },
 
-      //botão azul 
+      //botão verde 
       btn_green: {
         backgroundColor: '#32CD32',
         padding: 12,
-        margin: 2,
+        marginLeft: 7,
         height: 45,
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 7,
         marginBottom: 15,
+      },
+
+      botoes: {
+        flexDirection: 'row',
       },
 
       btn_option: {
         backgroundColor: '#61aadb', //remover o fundo azul claro
         padding: 12,
         margin: 2,
-        height: 55,
+        height: 62,
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 7,
@@ -227,8 +235,8 @@ export default function Dados() {
 
       //protocolo/cliente
       protocolo_cliente: {
-        flex: 2,
-        flexDirection: 'row',
+        flex: 1,
+        flexDirection: 'column',
         marginBottom: 20,
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -245,25 +253,16 @@ export default function Dados() {
         paddingLeft: 7,
       },
    
-      //remetente
-      names: {
-        flex: 3,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-    
-      },
-   
-  
       submit_text: {
         color: '#fff',
         fontSize: 17,
         textAlign: 'center',
       },
 
-
       btn_text: {
         color: '#fff',
-        fontSize: 18,
-      }
-
-    });
+        fontSize: 20,
+        marginTop:12,
+      },
+    }
+);

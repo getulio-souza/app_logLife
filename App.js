@@ -8,6 +8,7 @@ import Subscribe from './telas/subscribe'
 import Selecao from './telas/selecao'
 import Consulta from './telas/consultar_coleta'
 import Dados from './telas/dados'; 
+import DadosEnviarImagem from './telas/dados_enviar_img'; 
 
 const Stack = createStackNavigator();
 
@@ -15,13 +16,15 @@ export default function App() {
   
     return (
       <NavigationContainer>
-        <Stack.Navigator initialRouteName='Login'>
+        <Stack.Navigator screenOptions={{headerShown:false}}
+          initialRouteName='Dados'>
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="Subscribe" component={Subscribe} />
           <Stack.Screen name="Menu" component={Menu} />
           <Stack.Screen name="Selecao" component={Selecao} />
           <Stack.Screen name="Consulta" component={Consulta} />
           <Stack.Screen name="Dados" component={Dados} />
+          <Stack.Screen name="DadosEnviarImagem" component={DadosEnviarImagem} />
         </Stack.Navigator>
       </NavigationContainer>
     );
