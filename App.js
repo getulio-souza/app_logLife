@@ -9,18 +9,19 @@ import Selecao from './telas/selecao'
 import Consulta from './telas/consultar_coleta'
 import Dados from './telas/dados'; 
 
+const Stack = createStackNavigator();
+
 export default function App() {
   
-  const Stack = createStackNavigator();
     return (
       <NavigationContainer>
-        <Stack.Navigator headerMode = "none" initialRouteName='Login'>
-          <Stack.Screen name="login" component={Login} />
-          <Stack.Screen name="subscribe" component={Subscribe} />
-          <Stack.Screen name="menu" component={Menu} />
-          <Stack.Screen name="selecao" component={Selecao} />
-          <Stack.Screen name="consulta" component={Consulta} />
-          <Stack.Screen name="dados" component={Dados} />
+        <Stack.Navigator initialRouteName='Login'>
+          <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="Subscribe" component={Subscribe} />
+          <Stack.Screen name="Menu" component={Menu} />
+          <Stack.Screen name="Selecao" component={Selecao} />
+          <Stack.Screen name="Consulta" component={Consulta} />
+          <Stack.Screen name="Dados" component={Dados} />
         </Stack.Navigator>
       </NavigationContainer>
     );

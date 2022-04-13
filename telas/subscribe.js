@@ -46,6 +46,7 @@ export default function Subscribe() {
 
         <TextInput style={styles.input}
           placeholder='Nome completo'
+          keyboardType='default'
           autoCorrect={false}
           onChangeText={()=>{}}
         />
@@ -59,6 +60,7 @@ export default function Subscribe() {
 
          <TextInput style={styles.input}
           placeholder='Endereço de e-mail'
+          keyboardType='email-address'
           autoCorrect={false}
           onChangeText={()=>{}}
         />

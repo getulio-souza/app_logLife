@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
-import {View, Button, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet, Animated } from 'react-native';
+import {View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet, Animated } from 'react-native';
 
 export default function Login() {
 
@@ -43,12 +43,14 @@ export default function Login() {
 
         <TextInput style={styles.input}
           placeholder='Digite seu e-mail'
+          keyboardType='email-address'
           autoCorrect={false}
           onChangeText={()=>{}}
         />
 
          <TextInput style={styles.input}
           placeholder='Digite sua senha'
+          secureTextEntry={true}
           autoCorrect={false}
           onChangeText={()=>{}}
         />
