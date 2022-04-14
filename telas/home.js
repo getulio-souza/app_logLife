@@ -2,6 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
 import { View, KeyboardAvoidingView, Image, TouchableOpacity, Text, StyleSheet, Animated, Button } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import ButtonBackground from '../components/ButtonBackground';
+
 
 
 export default function Home() {
@@ -45,17 +47,17 @@ const navigation = useNavigation()
         }
       ]}>
         
-        <TouchableOpacity style={styles.btn_Submit}>
-            <Button style={styles.submit_text}
-            title='Fazer Login' onPress={()=> navigation.push("Login")}
-            />
-        </TouchableOpacity>
+          <ButtonBackground
+          text='Fazer Login'
+          color='#61aadb'
+          onPress={() => navigation.push("Login")}
+        />
         
-        <TouchableOpacity style={styles.btn_register}>
-          <Button style={styles.submit_text}
-            title='Criar conta' onPress={()=> navigation.push("Subscribe")}
+          <ButtonBackground
+          text='Criar conta'
+          color='#000'
+          onPress={() => navigation.push("Subscribe")}
             />
-      </TouchableOpacity>
 
       </Animated.View>
 
@@ -83,22 +85,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: 90,
     paddingBottom:40
-  },
-
-  btn_Submit: {   
-    backgroundColor: '#61aadb',
-    width: 250,
-    height: 45,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 7,
-    marginBottom: 15,
-  },
-
-  submit_text: {
-    color: '#fff',
-    fontSize: 18,
-    backgroundColor: 'rgba(0,0,0,0)',
   },
 
   btn_register: {

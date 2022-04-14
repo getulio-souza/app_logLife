@@ -2,6 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
 import { View, KeyboardAvoidingView, Image, TouchableOpacity, Text, StyleSheet, Animated, Button } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import ButtonBackground from '../components/ButtonBackground';
+
 
 export default function Menu() {
 
@@ -48,17 +50,17 @@ export default function Menu() {
           <Text style={styles.btn_text}>Escolha uma opção:</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.btn_Submit}>
-          <Button style={styles.submit_text}
-            title='Coletas Disponíveis' onPress={()=> navigation.push("Selecao")}
-            />
-        </TouchableOpacity>
+        <ButtonBackground
+          text='Coletas Disponíveis'
+          color='#61aadb'
+          onPress={() => navigation.push("Selecao")}
+        />
         
-        <TouchableOpacity style={styles.btn_register}>
-          <Button style={styles.register_text}
-            title='Sair' onPress={()=> navigation.push("Login")}
+          <ButtonBackground
+          text='Sair'
+          color='#000'
+          onPress={() => navigation.push("Login")}
             />
-      </TouchableOpacity>
 
       </Animated.View>
 
@@ -74,6 +76,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#003275',
   },
+
+ 
 
   containerLogo:{
     flex: 1,
@@ -101,6 +105,7 @@ const styles = StyleSheet.create({
   submit_text: {
     color: '#fff',
     fontSize: 18,
+    backgroundColor:'transparent',
   },
 
   btn_register: {

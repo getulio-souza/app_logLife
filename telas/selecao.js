@@ -2,6 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
 import { View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet, Animated, Button } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import ButtonBackground from '../components/ButtonBackground';
+
 
 export default function Selecao() {
 
@@ -42,34 +44,31 @@ export default function Selecao() {
         ]
         }
       ]}>
+        
         <TouchableOpacity style={styles.btn_title}>
           <Text style={styles.btn_text}>Selecione uma opção:</Text>
         </TouchableOpacity>
-        
-        <TouchableOpacity style={styles.btn_Submit}>
-          <Button style={styles.submit_text}
-            title='Coletas' onPress={()=> navigation.push("Dados")}
-            />
-        </TouchableOpacity>
 
-        <TouchableOpacity style={styles.btn_Submit}>
-          <Button style={styles.submit_text}
-            title='Embarques' onPress={()=> navigation.push("Dados")}
-            />
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.btn_Submit}>
-          <Button style={styles.submit_text}
-            title='Desembarques' onPress={()=> navigation.push("Dados")}
-            />
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.btn_Submit}>
-          <Button style={styles.submit_text}
-            title='Entregas' onPress={()=> navigation.push("Dados")}
-            />
-        </TouchableOpacity>
-        
+        <ButtonBackground
+          text='Coletas'
+          color='#61aadb'
+          onPress={() => navigation.push("Dados")}
+        />
+        <ButtonBackground
+          text='Embarques'
+          color='#61aadb'
+          onPress={() => navigation.push("Dados")}
+        />
+        <ButtonBackground
+          text='Desembarques'
+          color='#61aadb'
+          onPress={() => navigation.push("Dados")}
+        />
+        <ButtonBackground
+          text='Entregas'
+          color='#61aadb'
+          onPress={() => navigation.push("Dados")}
+        />
 
       </Animated.View>
 

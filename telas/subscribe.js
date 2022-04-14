@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import { View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet, Animated, Button } from 'react-native';
 import { TextInputMask } from 'react-native-masked-text';
 import { useNavigation } from '@react-navigation/native';
+import ButtonBackground from '../components/ButtonBackground';
 
 
 export default function Subscribe() {
@@ -80,12 +81,11 @@ export default function Subscribe() {
           onChangeText={()=>{}}
         />
 
-        
-        <TouchableOpacity style={styles.btn_register}>
-          <Button style={styles.submit_text}
-            title='Criar conta' onPress={()=> navigation.push("Login")}
-            />
-      </TouchableOpacity>
+        <ButtonBackground
+          text='Criar conta'
+          color='#61aadb'
+          onPress={() => navigation.push("Login")}
+        />
 
       </Animated.View>
 

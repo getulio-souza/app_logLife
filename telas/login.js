@@ -2,6 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
 import {View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet, Animated, Button } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import ButtonBackground from '../components/ButtonBackground';
+
 
 export default function Login() {
 
@@ -62,11 +64,12 @@ const navigation = useNavigation()
           onChangeText={()=>{}}
         />
 
-        <TouchableOpacity style={styles.btn_Submit}>
-          <Button style={styles.submit_text}
-            title='Acessar' onPress={()=> navigation.push("Menu")}
-            />
-        </TouchableOpacity>
+
+        <ButtonBackground
+          text='Acessar'
+          color='#61aadb'
+          onPress={() => navigation.push("Menu")}
+        />
 
       </Animated.View>
 
@@ -131,7 +134,7 @@ const styles = StyleSheet.create({
 
   submit_text: {
     color: '#fff',
-    fontSize: 18,
+    fontSize: 25,
   },
 
   btn_register: {
