@@ -55,7 +55,9 @@ export default function Menu() {
         </TouchableOpacity>
         
         <TouchableOpacity style={styles.btn_register}>
-          <Text style={styles.register_text}>Sair</Text>
+          <Button style={styles.register_text}
+            title='Sair' onPress={()=> navigation.push("Login")}
+            />
       </TouchableOpacity>
 
       </Animated.View>

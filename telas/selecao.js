@@ -53,15 +53,21 @@ export default function Selecao() {
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.btn_Submit}>
-          <Text style={styles.submit_text}>Embarques</Text>
+          <Button style={styles.submit_text}
+            title='Embarques' onPress={()=> navigation.push("Dados")}
+            />
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.btn_Submit}>
-          <Text style={styles.submit_text}>Desembarques</Text>
+          <Button style={styles.submit_text}
+            title='Desembarques' onPress={()=> navigation.push("Dados")}
+            />
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.btn_Submit}>
-          <Text style={styles.submit_text}>Entregas</Text>
+          <Button style={styles.submit_text}
+            title='Entregas' onPress={()=> navigation.push("Dados")}
+            />
         </TouchableOpacity>
         
 
