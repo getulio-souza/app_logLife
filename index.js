@@ -11,16 +11,16 @@ import { useNavigation } from '@react-navigation/native';
 registerRootComponent(App);
 
 
- export function Login() {
-      const navigation = useNavigation()
-    return (
-        <View>
-            <Text>Login</Text>
-            <Button
-            title='Ir para cadastro' onPress={()=> navigation.navigate("Subscribe")}
-            />
-        </View>
-    );    
- }
+// function Home() {
+//       const navigation = useNavigation()
+//     return (
+//         <View>
+//             <Text>Home</Text>
+//             <Button
+//             title='Ir para Login' onPress={()=> navigation.push("Login")}
+//             />
+//         </View>
+//     );    
+//  }
 
-export default Login;
+// export default Home;

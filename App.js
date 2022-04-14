@@ -10,6 +10,8 @@ import Selecao from './telas/selecao'
 import Consulta from './telas/consultar_coleta'
 import Dados from './telas/dados'; 
 import DadosEnviarImagem from './telas/dados_enviar_img'; 
+import { color } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
+
 
 const Stack = createStackNavigator();
 
@@ -17,7 +19,7 @@ export default function App() {
   
     return (
       <NavigationContainer>
-        <Stack.Navigator screenOptions={{headerShown:false}}
+        <Stack.Navigator
           initialRouteName='Home'>
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Login" component={Login} />

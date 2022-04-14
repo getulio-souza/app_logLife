@@ -1,9 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
-import { View, KeyboardAvoidingView, Image, TouchableOpacity, Text, StyleSheet, Animated } from 'react-native';
+import { View, KeyboardAvoidingView, Image, TouchableOpacity, Text, StyleSheet, Animated, Button } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 
 export default function Home() {
-
+  
   const [offset] = useState(new Animated.ValueXY({ x: 0, y: 95 }));
   const [opacity] = useState(new Animated.Value(0));
   
@@ -22,9 +24,12 @@ export default function Home() {
     ]).start();
   }, []);
 
-  return (
-    <KeyboardAvoidingView style={styles.background}>
+        const navigation = useNavigation()
 
+  return (
+
+    <KeyboardAvoidingView style={styles.background}>
+      
       <View style={styles.containerLogo}>
         <Image source={require('../telas/img/logo.png')}
         />
@@ -39,13 +44,17 @@ export default function Home() {
         ]
         }
       ]}>
-
+        
         <TouchableOpacity style={styles.btn_Submit}>
-          <Text style={styles.submit_text}>Fazer login</Text>
+            <Button style={styles.submit_text}
+            title='Fazer Login' onPress={()=> navigation.push("Login")} BackgroundColor={'none'}
+            />
         </TouchableOpacity>
         
         <TouchableOpacity style={styles.btn_register}>
-          <Text style={styles.register_text}>Criar conta</Text>
+          <Button style={styles.submit_text}
+            title='Criar conta' onPress={()=> navigation.push("Subscribe")}
+            />
       </TouchableOpacity>
 
       </Animated.View>
@@ -89,6 +98,7 @@ const styles = StyleSheet.create({
   submit_text: {
     color: '#fff',
     fontSize: 18,
+    backgroundColor: 'rgba(0,0,0,0)',
   },
 
   btn_register: {
