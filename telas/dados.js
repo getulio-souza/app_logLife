@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
-import { View, KeyboardAvoidingView, Image, TouchableOpacity, Text, StyleSheet, Animated, TextInput, } from 'react-native';
+import { View, KeyboardAvoidingView, TouchableOpacity, Text, TextInput, StyleSheet, Animated,  } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import ButtonUpload from '../components/uploadBtn';
 
 export default function Dados() {
 
@@ -22,13 +24,12 @@ export default function Dados() {
     ]).start();
   }, []);
 
+const navigation = useNavigation()
+
+
   return (
     <KeyboardAvoidingView style={styles.background}>
 
-       {/* <View style={styles.containerLogo}>
-         <Image source={require('../telas/img/logo.png')}
-        />
-      </View> */}
       <Animated.View style={[
         styles.container,
         {
@@ -38,104 +39,108 @@ export default function Dados() {
         ]
         }
       ]}>
-        <TouchableOpacity style={styles.btn_title}>
-          <Text style={styles.btn_text}>LANÇAMENTO DA COLETA</Text>
+        <TouchableOpacity style={styles.title}>
+          <Text style={styles.title_text}>Lançamento da coleta</Text>
         </TouchableOpacity>
       
-        {/* <PickerComponent/> */}
+        
+        {/* <View style={styles.form_background}> */}
 
-  
-        <View style={styles.protocolo_cliente}>
-        <TouchableOpacity style={styles.btn_option}>
-            <Text style={styles.submit_text}>Protocolo:</Text>
-            <TextInput
+        <TouchableOpacity style={styles.two_boxes_column}>
+          <View style={styles.box_left}>
+          <Text style={styles.two_boxes_text}>protocolo</Text>
+           <TextInput
               keyboardType='number-pad'
               placeholder='ex: 123218378273'
               autoCorrect={false}
               onChangeText={() => { }}
               maxLength={17}
-            />
-          </TouchableOpacity>
-          
-        <TouchableOpacity style={styles.btn_option}>
-            <Text style={styles.submit_text}>Cliente:</Text>
-            <TextInput
+          />
+          </View>
+          <View style={styles.box_right}>
+          <Text style={styles.two_boxes_text}>Cliente</Text>
+           <TextInput
               placeholder='ex: Fleury'
               autoCorrect={false}
               onChangeText={()=>{}}
-            />
+              />
+          </View>
         </TouchableOpacity>
-        </View>
-      
-        <View style={styles.protocolo_cliente}>
-          <TouchableOpacity style={styles.btn_option}>
-            <Text style={styles.submit_text}>Remetente:</Text>
-            <TextInput
-              placeholder='ex: José de Souza'
-              autoCorrect={false}
-              onChangeText={()=>{}}
-            />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.btn_option}>
-            <Text style={styles.submit_text}>Responsável:</Text> 
-            <TextInput
-              placeholder='ex: joao da silva'
-              autoCorrect={false}
-              onChangeText={()=>{}}
-            />
-        </TouchableOpacity>
-        </View>
 
-        <View style={styles.protocolo_cliente}>
-          <TouchableOpacity style={styles.btn_option}>
-            <Text style={styles.submit_text}>Volume:</Text> 
+        <TouchableOpacity style={styles.two_box_row}>
+          <View style={styles.one_box_row}>
+            <Text style={styles.one_box_row_text}>Remetente</Text>
             <TextInput
+              placeholder='ex: João da Siilva'
+              autoCorrect={false}
+              onChangeText={()=>{}}
+              />
+          </View>
+          <View style={styles.one_box_row}>
+            <Text style={styles.one_box_row_text}>Responsável</Text>
+            <TextInput
+              placeholder='ex: João da Silva'
+              autoCorrect={false}
+              onChangeText={()=>{}}
+              />
+          </View>
+        </TouchableOpacity>
+        
+
+
+<TouchableOpacity style={styles.two_boxes_column}>
+          <View style={styles.box_left}>
+          <Text style={styles.two_boxes_text}>Volume</Text>
+           <TextInput
               keyboardType='number-pad'
               placeholder='ex: 1,2,3,4,5'
               autoCorrect={false}
               onChangeText={() => { }}
               maxLength={2}
-            />
-        </TouchableOpacity>
-          <TouchableOpacity style={styles.btn_option}>
-            <Text style={styles.submit_text}>Amostras:</Text> 
-            <TextInput
+          />
+          </View>
+          <View style={styles.box_right}>
+          <Text style={styles.two_boxes_text}>Nº de Amostras</Text>
+           <TextInput style={styles.input_box_right}
               keyboardType='number-pad'
               placeholder='ex: 1,2,3,4,5'
               autoCorrect={false}
-              onChangeText={()=>{}}
-            />
-        </TouchableOpacity>
-     
+              onChangeText={() => { }}
+              maxLength={2}
+              />
           </View>
-          
-         
-        <View style={styles.protocolo_cliente}>
-         <TouchableOpacity style={styles.btn_option}>
-            <Text style={styles.submit_text}>Observações:</Text> 
+        </TouchableOpacity>
+
+<TouchableOpacity style={styles.two_box_row}>
+          <View style={styles.one_box_row}>
+            <Text style={styles.one_box_row_text}>Observações</Text>
             <TextInput
-              multiline={true}
-              maxLength={20}
-              placeholder='Digite seu comentário'
+              placeholder='ex: João da Siilva'
               autoCorrect={false}
               onChangeText={()=>{}}
-            />
+              />
+          </View>
+          <View style={styles.one_box_row}>
+            <Text style={styles.one_box_row_text}>Declaração</Text>
+            <ButtonUpload
+          text='Subir imagem'
+          color='#61aadb'
+          onPress={() => navigation.push("DadosEnviarImagem")}
+        />
+          </View>
         </TouchableOpacity>
-          <TouchableOpacity style={styles.btn_option_upload}>
-            <Text style={styles.submit_text_upload}>Enviar imagem</Text>
-        </TouchableOpacity>
-        </View>
-        
+
 
         <View style={styles.botoes}>
         <TouchableOpacity style={styles.btn_red}>
-            <Text style={styles.submit_text}>Ocorrência</Text>
+            <Text style={styles.btn_text}>Ocorrência</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.btn_green}>
-            <Text style={styles.submit_text}>Finalizar</Text>
+            <Text style={styles.btn_text}>Finalizar</Text>
         </TouchableOpacity>
-        </View>
-
+          </View>
+          
+       {/* </View> */}
   
       </Animated.View>
 
@@ -152,18 +157,22 @@ export default function Dados() {
         backgroundColor: '#003275',
       },
 
-      containerLogo: {
-        flex: 1,
-        justifyContent: 'center',
+      form_background: {
+        backgroundColor:'#fff'
       },
 
-      btn_title: {
+      title: {
         width: 250,
-        height: 45,
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 7,
-        marginTop: 15,
+        margin: 15,
+      },
+      
+      title_text: {
+        color:'#fff',
+        fontSize: 25,
+        textAlign:'center',
       },
 
       container: {
@@ -173,12 +182,58 @@ export default function Dados() {
         width: 240,
         paddingBottom: 20,
       },
-   
 
-      full_data: {
+      two_boxes_column: {
+      backgroundColor:'#fff',
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginBottom: 15,
+      padding: 20,
+      borderRadius: 5,
+    },
     
+      box_left: {
+        marginRight: 20,
+    },
+
+      box_right: {
+        marginLeft:20,
+    },
+      
+      input_box_right: {
+        textAlign:'center',
+    },
+
+    two_boxes_text:{
+      textAlign: 'center',
+      color: '#000',
+      fontSize:17,
+    },
+      
+      two_box_row: {
+      flexDirection: 'column',
+      backgroundColor:'#fff',
+      alignItems: 'center',
+      marginBottom: 15,
+      padding: 20,
+      borderRadius: 5,
+      width:260,
+      
+      },
+    
+      one_box_row: {
+        margin:5,
       },
 
+      one_box_row_text: {
+        textAlign: 'center',
+      },
+
+      //dois botões finais
+      botoes: {
+        flexDirection: 'row',
+      },
+      
       //botão vermelho 
       btn_red: {
         backgroundColor: '#DC143C',
@@ -203,66 +258,10 @@ export default function Dados() {
         marginBottom: 15,
       },
 
-      botoes: {
-        flexDirection: 'row',
-      },
-
-      btn_option: {
-        backgroundColor: '#61aadb', //remover o fundo azul claro
-        padding: 12,
-        margin: 2,
-        height: 62,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 7,
-        marginBottom: 15,
-      },
-
-      btn_option_upload: {
-        backgroundColor: '#fff',
-        padding: 12,
-        margin: 2,
-        height: 45,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 7,
-        marginBottom: 15,
-      },
-
-      submit_text_upload: {
-        color: '#61aadb'
-      },
-
-      //protocolo/cliente
-      protocolo_cliente: {
-        flex: 1,
-        flexDirection: 'column',
-        marginBottom: 20,
-        justifyContent: 'space-between',
-        alignItems: 'center',
-      },
-   
-      input: {
-        backgroundColor: '#32CD32',
-        width: 120,
-        height: 40,
-        marginBottom: 15,
-        color: '#222',
-        fontSize: 17,
-        borderRadius: 7,
-        paddingLeft: 7,
-      },
-   
-      submit_text: {
-        color: '#fff',
-        fontSize: 17,
-        textAlign: 'center',
-      },
-
       btn_text: {
         color: '#fff',
-        fontSize: 20,
-        marginTop:12,
-      },
+        fontWeight:'900',
+      }
+      
     }
 );

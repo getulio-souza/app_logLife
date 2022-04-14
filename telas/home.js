@@ -61,7 +61,7 @@ const navigation = useNavigation()
 
       </Animated.View>
 
-    <StatusBar style="light" />
+    <StatusBar style="dark" />
     </KeyboardAvoidingView>
   );
 }

@@ -52,18 +52,21 @@ export default function Selecao() {
         <ButtonBackground
           text='Coletas'
           color='#61aadb'
-          onPress={() => navigation.push("Dados")}
+          onPress={() => navigation.push("Consulta")}
         />
+
         <ButtonBackground
           text='Embarques'
           color='#61aadb'
           onPress={() => navigation.push("Dados")}
         />
+
         <ButtonBackground
           text='Desembarques'
           color='#61aadb'
           onPress={() => navigation.push("Dados")}
         />
+        
         <ButtonBackground
           text='Entregas'
           color='#61aadb'

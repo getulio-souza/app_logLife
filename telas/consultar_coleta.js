@@ -2,6 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
 import { View, KeyboardAvoidingView, Image, TouchableOpacity, Text, StyleSheet, Animated, Button } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import ButtonBackground from '../components/ButtonBackground';
+
 
 export default function Consulta() {
 
@@ -57,6 +59,9 @@ const navigation = useNavigation()
         <TouchableOpacity style={styles.btn_option}>
           <Text style={styles.submit_text_special}>Remetente</Text>
         </TouchableOpacity>
+        </View>
+      
+        <View style={styles.allBtn}>
         <TouchableOpacity style={styles.btn_option}>
           <Text style={styles.submit_text}>Data</Text>
         </TouchableOpacity>
@@ -64,11 +69,12 @@ const navigation = useNavigation()
           <Text style={styles.submit_text}>Entregas</Text>
           </TouchableOpacity>
         </View>
-           <View style={styles.btn_Submit}>
-          <Button style={styles.submit_text}
-            title='Buscar' onPress={()=> navigation.push("Dados")}
-            />
-        </View>
+
+           <ButtonBackground
+          text='Buscar'
+          color='#61aadb'
+          onPress={() => navigation.push("Consulta")}
+        />
   
       </Animated.View>
 
@@ -134,7 +140,7 @@ const styles = StyleSheet.create({
 
   submit_text: {
     color: '#fff',
-    fontSize: 17,
+    fontSize: 12,
   },
 
 
@@ -155,7 +161,7 @@ const styles = StyleSheet.create({
 
   btn_text: {
     color: '#fff',
-    fontSize: 18,
+    fontSize: 25,
   },
 
   register_text: {
