@@ -1,7 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
-import { View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet, Animated } from 'react-native';
+import { View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet, Animated, Button } from 'react-native';
 import { TextInputMask } from 'react-native-masked-text';
+import { useNavigation } from '@react-navigation/native';
+
+
 export default function Subscribe() {
 
   const [offset] = useState(new Animated.ValueXY({ x: 0, y: 95 }));
@@ -22,6 +25,8 @@ export default function Subscribe() {
       })
     ]).start();
   }, []);
+
+  const navigation = useNavigation()
 
   return (
     <KeyboardAvoidingView style={styles.background}>
@@ -77,7 +82,9 @@ export default function Subscribe() {
 
         
         <TouchableOpacity style={styles.btn_register}>
-          <Text style={styles.register_text}>Criar conta</Text>
+          <Button style={styles.submit_text}
+            title='Criar conta' onPress={()=> navigation.push("Login")}
+            />
       </TouchableOpacity>
 
       </Animated.View>

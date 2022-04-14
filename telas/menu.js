@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
-import { View, KeyboardAvoidingView, Image, TouchableOpacity, Text, StyleSheet, Animated } from 'react-native';
+import { View, KeyboardAvoidingView, Image, TouchableOpacity, Text, StyleSheet, Animated, Button } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Menu() {
 
@@ -21,6 +22,9 @@ export default function Menu() {
       })
     ]).start();
   }, []);
+
+
+    const navigation = useNavigation()
 
   return (
     <KeyboardAvoidingView style={styles.background}>
@@ -45,7 +49,9 @@ export default function Menu() {
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.btn_Submit}>
-          <Text style={styles.submit_text}>Coletas Disponíveis</Text>
+          <Button style={styles.submit_text}
+            title='Coletas Disponíveis' onPress={()=> navigation.push("Selecao")}
+            />
         </TouchableOpacity>
         
         <TouchableOpacity style={styles.btn_register}>

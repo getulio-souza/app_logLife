@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
-import { View, KeyboardAvoidingView, Image, TouchableOpacity, Text, StyleSheet, Animated, } from 'react-native';
-// import PickerComponent from './components/picker';
+import { View, KeyboardAvoidingView, Image, TouchableOpacity, Text, StyleSheet, Animated, Button } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Consulta() {
 
@@ -22,6 +22,9 @@ export default function Consulta() {
       })
     ]).start();
   }, []);
+
+const navigation = useNavigation()
+
 
   return (
     <KeyboardAvoidingView style={styles.background}>
@@ -62,7 +65,9 @@ export default function Consulta() {
           </TouchableOpacity>
         </View>
            <View style={styles.btn_Submit}>
-          <Text style={styles.submit_btn}>Buscar</Text>
+          <Button style={styles.submit_text}
+            title='Buscar' onPress={()=> navigation.push("Dados")}
+            />
         </View>
   
       </Animated.View>

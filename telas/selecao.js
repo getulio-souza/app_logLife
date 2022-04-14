@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
-import { View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet, Animated } from 'react-native';
+import { View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet, Animated, Button } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Selecao() {
 
@@ -21,6 +22,8 @@ export default function Selecao() {
       })
     ]).start();
   }, []);
+
+  const navigation = useNavigation()
 
   return (
     <KeyboardAvoidingView style={styles.background}>
@@ -44,14 +47,19 @@ export default function Selecao() {
         </TouchableOpacity>
         
         <TouchableOpacity style={styles.btn_Submit}>
-          <Text style={styles.submit_text}>Coletas</Text>
+          <Button style={styles.submit_text}
+            title='Coletas' onPress={()=> navigation.push("Dados")}
+            />
         </TouchableOpacity>
+
         <TouchableOpacity style={styles.btn_Submit}>
           <Text style={styles.submit_text}>Embarques</Text>
         </TouchableOpacity>
+
         <TouchableOpacity style={styles.btn_Submit}>
           <Text style={styles.submit_text}>Desembarques</Text>
         </TouchableOpacity>
+
         <TouchableOpacity style={styles.btn_Submit}>
           <Text style={styles.submit_text}>Entregas</Text>
         </TouchableOpacity>

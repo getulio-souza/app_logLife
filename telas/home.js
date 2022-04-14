@@ -24,7 +24,7 @@ export default function Home() {
     ]).start();
   }, []);
 
-        const navigation = useNavigation()
+const navigation = useNavigation()
 
   return (
 
@@ -47,7 +47,7 @@ export default function Home() {
         
         <TouchableOpacity style={styles.btn_Submit}>
             <Button style={styles.submit_text}
-            title='Fazer Login' onPress={()=> navigation.push("Login")} BackgroundColor={'none'}
+            title='Fazer Login' onPress={()=> navigation.push("Login")}
             />
         </TouchableOpacity>
         
