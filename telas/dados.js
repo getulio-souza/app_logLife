@@ -1,8 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
-import { View, KeyboardAvoidingView, TouchableOpacity, Text, TextInput, StyleSheet, Animated,  } from 'react-native';
+import { View, KeyboardAvoidingView,TouchableOpacity, Text, TextInput, StyleSheet, Animated, Button  } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import ButtonUpload from '../components/uploadBtn';
+import ImagePicker from "react-native-image-picker"
 
 export default function Dados() {
 
@@ -28,7 +29,10 @@ const navigation = useNavigation()
 
 
   return (
-    <KeyboardAvoidingView style={styles.background}>
+    <KeyboardAvoidingView
+      keyboardShouldPersistTaps={'always'}
+      
+      style={styles.background}>
 
       <Animated.View style={[
         styles.container,
@@ -113,9 +117,9 @@ const navigation = useNavigation()
 
 <TouchableOpacity style={styles.two_box_row}>
           <View style={styles.one_box_row}>
-            <Text style={styles.one_box_row_text}>Observações</Text>
+            <Text style={styles.one_box_row_text}>Observações:</Text>
             <TextInput
-              placeholder='ex: João da Siilva'
+              placeholder='Digite seu comentário'
               autoCorrect={false}
               onChangeText={()=>{}}
               />
@@ -135,7 +139,7 @@ const navigation = useNavigation()
         <TouchableOpacity style={styles.btn_red}>
             <Text style={styles.btn_text}>Ocorrência</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.btn_green}>
+          <TouchableOpacity style={styles.btn_green}>
             <Text style={styles.btn_text}>Finalizar</Text>
         </TouchableOpacity>
           </View>
@@ -166,13 +170,14 @@ const navigation = useNavigation()
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 7,
-        margin: 15,
+        marginTop:50,
+        paddingBottom:15,
       },
       
       title_text: {
         color:'#fff',
         fontSize: 25,
-        textAlign:'center',
+        textAlign: 'center',
       },
 
       container: {
