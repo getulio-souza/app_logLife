@@ -1,15 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
-import {View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet, Animated, Button } from 'react-native';
+import {View, KeyboardAvoidingView, Image, TextInput, TouchableOpacity, Text, StyleSheet, Animated } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import ButtonBackground from '../components/ButtonBackground';
 
 
 export default function Login() {
 
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const handleSignUp = () => {
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then(userCredentials => {
+        const user = userCredentials.user;
+        console.log(user.email);
+      })
+    .catch(error => alert(error.message))
+  }
+
   const [offset] = useState(new Animated.ValueXY({ x: 0, y: 95 }));
   const [opacity] = useState(new Animated.Value(0));
-  
+
+
   useEffect(() => {
     Animated.parallel([
       Animated.spring(offset.y, {
@@ -52,23 +66,26 @@ const navigation = useNavigation()
         
         <TextInput style={styles.input}
           placeholder='Digite seu e-mail'
+          value={email}
           keyboardType='email-address'
           autoCorrect={false}
-          onChangeText={()=>{}}
+          onChangeText={(text)=> setEmail(text)}
+          onPress={handleSignUp}
         />
 
          <TextInput style={styles.input}
           placeholder='Digite sua senha'
+          value={password}
           secureTextEntry={true}
           autoCorrect={false}
-          onChangeText={()=>{}}
+          onChangeText={(text)=> setPassword(text)}
+          onPress={() => navigation.push("Subscribe")}
         />
-
 
         <ButtonBackground
           text='Acessar'
           color='#61aadb'
-          onPress={() => navigation.push("Menu")}
+          onPress={handleSignUp}
         />
 
       </Animated.View>

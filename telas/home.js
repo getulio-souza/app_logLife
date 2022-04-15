@@ -3,10 +3,13 @@ import React, {useState, useEffect} from 'react';
 import { View, KeyboardAvoidingView, Image, TouchableOpacity, Text, StyleSheet, Animated, Button } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import ButtonBackground from '../components/ButtonBackground';
+import {auth} from './firebase'
 
 
 
 export default function Home() {
+
+ 
   
   const [offset] = useState(new Animated.ValueXY({ x: 0, y: 95 }));
   const [opacity] = useState(new Animated.Value(0));
@@ -49,15 +52,18 @@ const navigation = useNavigation()
         
           <ButtonBackground
           text='Fazer Login'
+          value={email}
           color='#61aadb'
           onPress={() => navigation.push("Login")}
         />
         
           <ButtonBackground
           text='Criar conta'
+          value={password}
           color='#000'
+          onChangeText={()=> setPassword()}
           onPress={() => navigation.push("Subscribe")}
-            />
+        />
 
       </Animated.View>
 
