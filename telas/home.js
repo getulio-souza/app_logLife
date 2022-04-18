@@ -1,16 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
-import { View, KeyboardAvoidingView, Image, TouchableOpacity, Text, StyleSheet, Animated, Button } from 'react-native';
+import { View, KeyboardAvoidingView, Image, Text, StyleSheet, Animated} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import ButtonBackground from '../components/ButtonBackground';
-import {auth} from './firebase'
-
+import { Linking } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 export default function Home() {
 
- 
-  
+
   const [offset] = useState(new Animated.ValueXY({ x: 0, y: 95 }));
   const [opacity] = useState(new Animated.Value(0));
   
@@ -52,18 +51,21 @@ const navigation = useNavigation()
         
           <ButtonBackground
           text='Fazer Login'
-          value={email}
           color='#61aadb'
           onPress={() => navigation.push("Login")}
         />
         
           <ButtonBackground
           text='Criar conta'
-          value={password}
           color='#000'
-          onChangeText={()=> setPassword()}
           onPress={() => navigation.push("Subscribe")}
         />
+
+        <TouchableOpacity style={styles.author}>
+          <Text style={styles.author_text}
+          onPress={()=> Linking.openURL('https://getulio-souza.netlify.app/')}
+          >Feito por <Text style={{color:'#fff'}}>Getúlio Souza</Text></Text>
+        </TouchableOpacity>
 
       </Animated.View>
 
@@ -88,8 +90,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
-    width: 90,
+    justifyContent: 'space-between',
     paddingBottom:40
   },
 
@@ -120,6 +121,19 @@ const styles = StyleSheet.create({
     btn_text: {
         color: '#fff',
         fontSize: 25,
-      }
+  },
+    
+  author: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex:1,
+    },
+    
+    author_text: {
+      textAlign: 'center',
+      color: '#61aadb',
+      fontWeight: '700',
+      fontSize: 12,
+    },    
 
 });

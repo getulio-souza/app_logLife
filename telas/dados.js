@@ -129,7 +129,7 @@ const navigation = useNavigation()
             <ButtonUpload
           text='Subir imagem'
           color='#61aadb'
-          onPress={() => navigation.push("DadosEnviarImagem")}
+          onPress={() => navigation.push("EnviarImagem")}
         />
           </View>
         </TouchableOpacity>

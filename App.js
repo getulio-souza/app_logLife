@@ -26,7 +26,7 @@ export default function App() {
           <Stack.Screen name="Selecao" component={Selecao} />
           <Stack.Screen name="Consulta" component={Consulta} />
           <Stack.Screen name="Dados" component={Dados} options={{headerShown:false}}/>
-          <Stack.Screen name="DadosEnviarImagem" component={DadosEnviarImagem} />
+          <Stack.Screen name="EnviarImagem" component={DadosEnviarImagem} />
         </Stack.Navigator>
       </NavigationContainer>
     );
